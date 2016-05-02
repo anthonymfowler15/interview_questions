@@ -11,8 +11,8 @@ public class BeerProfit {
   //   {"brewery": "sf_brewery_united", "kegs": 2, "type": "ipa"},
   //   {"brewery": "sunnyvale_hipster_bar", "kegs": 10, "type": "lambic"}
   // ]
-  private static ArrayList getOrders() {
-    ArrayList< Order > orders= new ArrayList < Order >();
+  private static List getOrders() {
+    List< Order > orders= new ArrayList < Order >();
     Order order1 = new Order("la_brew", 5, "pilsner");
     Order order2 = new Order("sf_brewery_united", 2, "ipa");
     Order order3 = new Order("sunnyvale_hipster_bar", 10, "lambic");
@@ -23,6 +23,7 @@ public class BeerProfit {
     return orders;
   }
 
+  // time_table = {'pilsner': 1, 'ipa': 2, 'lambic': 5}
   private static Map getTimeTable() {
     Map<String, Integer> time_table = new HashMap<String, Integer>();
     time_table.put("pilsner", 1);
@@ -31,6 +32,7 @@ public class BeerProfit {
     return time_table;
   }
 
+  // profit_table = {'pilsner': 5, 'ipa': 15, 'lambic': 10}
   private static Map getProfitTable() {
     Map<String, Integer> profit_table = new HashMap<String, Integer>();
     profit_table.put("pilsner", 5);
@@ -40,42 +42,13 @@ public class BeerProfit {
   }
 
   public static void main(String[] args) {
-    ArrayList< Order > orders = getOrders();
+    List< Order > orders = getOrders();
     Map <String, Integer> time_table = getTimeTable();
     Map <String, Integer> profit_table = getProfitTable();
 
     // how do you maximize profit? What is the maximum profit that we can get from this list of orders?
     // Assume you can make any number of kegs in an order
     // Assume each beer type is only requested once
-    // Solution
-    Result result = findProfit(0, orders, new ArrayList<Order>(), DAYS, time_table, profit_table);
-    System.out.println(result.profit);
-    System.out.println(result.orders_taken);
   }
 
-  public static Result findProfit(int profit, ArrayList <Order> order_list, ArrayList <Order> orders_taken, int days_left, Map<String, Integer> time_table, Map<String, Integer> profit_table) {
-
-    if (order_list.size() <= 0) {
-      System.out.println("returning");
-      return new Result(profit, orders_taken);
-    }
-
-    if (days_left - 7 < time_table.get(order_list.get(0).type) ) {
-      return findProfit(profit, order_list.subList(1, order_list.size()), orders_taken, days_left, time_table, profit_table);
-    }
-
-
-
-
-
-
-
-
-
-
-
-    return new Result(1, new ArrayList<Order>());
-  }
 }
-
-

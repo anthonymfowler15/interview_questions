@@ -14,4 +14,8 @@ public class Order {
     this.kegs = kegs;
     this.type = type;
   }
+
+  public String toString() {
+    return ("{Brewery: " + this.brewery + " kegs: " + this.kegs + " type: " + this.type + "}");
+  }
 }

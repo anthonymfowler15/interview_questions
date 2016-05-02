@@ -40,3 +40,33 @@ for order in orders:
   if money_per_week > max_profit:
     max_profit = money_per_week
 print max_profit
+
+
+# NOTES
+# This question tests recursion and parsing of data
+
+
+# Variation 2
+# Assume you can make any number of kegs at a time for a particular type of beer
+# Each beer type can be requested more than once
+
+
+# Variation 3
+# Breweries need to have the beer by x days after 0
+# After that time, you cannot fulfill the request
+orders=[
+  {'brewery': 'la_brew', 'kegs': 5, 'type': 'pilsner', 'time': 2},
+  {'brewery': 'sf_brewery_united', 'kegs': 2, 'type': 'ipa', 'time': 2},
+  {'brewery': 'sunnyvale_hipster_bar', 'kegs': 10, 'type': 'lambic', 'time': 2}
+]
+
+time_table = {'pilsner': 1, 'ipa': 2, 'lambic': 3}
+
+
+
+
+
+
+
+
+
